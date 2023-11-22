@@ -1,7 +1,8 @@
-const inputFieldEl = document.getElementById("input-field")
-const addButtonEl = document.getElementById("add-button")
+const addBtnEl = document.querySelector("#add-button")
+const inputFieldEl = document.querySelector("#input-field")
 
-addButtonEl.addEventListener("click", function() {
+addBtn.addEventListener("click", function(){
     let inputValue = inputFieldEl.value
 
+    console.log(inputValue)    
 })
