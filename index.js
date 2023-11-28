@@ -6,7 +6,7 @@ const appSettings = {
     databaseURL: "https://lister-fd263-default-rtdb.asia-southeast1.firebasedatabase.app/"
 } 
 
-const app = appSettings(initializeApp)
+const app = initializeApp(appSettings)
 const database = getDatabase(app)
 const itemsInDB = ref(database, "itemsList")
 
@@ -19,7 +19,6 @@ addBtnEl.addEventListener("click", function(){
 
       
 })
-
 // import {initializeApp} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
 // import {getDatabase, ref, push} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
