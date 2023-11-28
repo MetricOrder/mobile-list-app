@@ -1,6 +1,10 @@
 
 import {initializeApp} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
 import {getDatabase} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+
+const appSettings = {
+    databaseURL: "https://lister-fd263-default-rtdb.asia-southeast1.firebasedatabase.app/"
+} 
 const addBtnEl = document.querySelector("#add-button")
 const inputFieldEl = document.querySelector("#input-field")
 
