@@ -1,6 +1,6 @@
 
 import {initializeApp} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import {getDatabase, ref} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+import {getDatabase, ref, push} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 const appSettings = {
     databaseURL: "https://lister-fd263-default-rtdb.asia-southeast1.firebasedatabase.app/"
@@ -15,47 +15,10 @@ const inputFieldEl = document.querySelector("#input-field")
 
 addBtnEl.addEventListener("click", function(){
     let inputValue = inputFieldEl.value
+    push(itemsInDB, inputValue)
 
       
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import {initializeApp} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
 // import {getDatabase, ref, push} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
