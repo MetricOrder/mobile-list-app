@@ -16,6 +16,14 @@ const listItemsEl = document.querySelector("#list-items")
 addBtnEl.addEventListener("click", function(){
     let inputValue = inputFieldEl.value
     push(itemsInDB, inputValue)
-    listItemsEl.innerHTML += `<li>${inputValue}</li>` 
-    inputFieldEl.value = ""     
+    addUserInput(inputValue)
+    clearUserInput()    
 })
+
+function addUserInput(userInput){
+    listItemsEl.innerHTML += `<li>${userInput}</li>` 
+}
+
+function clearUserInput(){
+    inputFieldEl.value = ""
+}
