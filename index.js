@@ -9,9 +9,9 @@ const appSettings = {
 const app = initializeApp(appSettings)
 const database = getDatabase(app)
 const itemsInDB = ref(database, "itemsList")
-
 const addBtnEl = document.querySelector("#add-button")
 const inputFieldEl = document.querySelector("#input-field")
+const listItemsEl = document.querySelector("#list-items")
 
 addBtnEl.addEventListener("click", function(){
     let inputValue = inputFieldEl.value
