@@ -16,16 +16,17 @@ const listItemsEl = document.querySelector("#list-items")
 addBtnEl.addEventListener("click", function(){
     let inputValue = inputFieldEl.value
     push(itemsInDB, inputValue)
-    addUserInput(inputValue)
+    addUserInputToList(inputValue)
     clearUserInput()    
 })
 
 onValue(itemsInDB, function(snapshot){
     let itemsArray = Object.values(snapshot.val())
+    addUserInputToList(itemsArray[i])
 
 })
 
-function addUserInput(userInput){
+function addUserInputToList(userInput){
     listItemsEl.innerHTML += `<li>${userInput}</li>` 
 }
 
