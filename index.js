@@ -21,7 +21,7 @@ addBtnEl.addEventListener("click", function(){
 })
 
 onValue(itemsInDB, function(snapshot){
-    let listItemsFromDB = Object.values(snapshot.val())
+    let itemsArray = Object.values(snapshot.val())
 
 })
 
