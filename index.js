@@ -16,16 +16,19 @@ const listItemsEl = document.querySelector("#list-items")
 addBtnEl.addEventListener("click", function(){
     let inputValue = inputFieldEl.value
     push(itemsInDB, inputValue)
-    addUserInputToList(inputValue)
     clearUserInput()    
 })
 
 onValue(itemsInDB, function(snapshot){
     let itemsArray = Object.values(snapshot.val())
+    clearListItemsEl()
     for (let i = 0; i < itemsArray.length; i++)
     addUserInputToList(itemsArray[i])
-
 })
+
+function clearListItemsEl(){
+    listItemsEl.innerHTML = ""
+}
 
 function addUserInputToList(userInput){
     listItemsEl.innerHTML += `<li>${userInput}</li>` 
@@ -34,3 +37,4 @@ function addUserInputToList(userInput){
 function clearUserInput(){
     inputFieldEl.value = ""
 }
+
