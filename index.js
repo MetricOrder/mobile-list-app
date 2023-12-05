@@ -37,13 +37,18 @@ onValue(itemsInDB, function(snapshot){
 
 function clearListItemsEl(){
     listItemsEl.innerHTML = ""
-}
-
-function addUserInputToList(userInput){
-    listItemsEl.innerHTML += `<li>${userInput}</li>` 
+    
 }
 
 function clearUserInput(){
     inputFieldEl.value = ""
 }
+
+function addUserInputToList(userInput){
+    let newEl = document.createElement("li")
+    newEl.textContent = userInput
+    listItemsEl.append(newEl)
+}
+
+
 
