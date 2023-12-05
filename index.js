@@ -22,8 +22,9 @@ addBtnEl.addEventListener("click", function(){
 onValue(itemsInDB, function(snapshot){
     let itemsArray = Object.values(snapshot.val())
     clearListItemsEl()
-    for (let i = 0; i < itemsArray.length; i++)
-    addUserInputToList(itemsArray[i])
+    for (let i = 0; i < itemsArray.length; i++) {
+        addUserInputToList(itemsArray[i])
+    }
 })
 
 function clearListItemsEl(){
