@@ -59,6 +59,3 @@ function addUserInputToList(item){
 
     listItemsEl.append(newEl)
 }
-
-
-
