@@ -1,6 +1,6 @@
 
 import {initializeApp} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import {getDatabase, ref, push, onValue} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+import {getDatabase, ref, push, onValue, remove} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 const appSettings = {
     databaseURL: "https://lister-fd263-default-rtdb.asia-southeast1.firebasedatabase.app/"
@@ -20,17 +20,20 @@ addBtnEl.addEventListener("click", function(){
 })
 
 onValue(itemsInDB, function(snapshot){
+    if(snapshot.exists()){
+        let itemsArray = Object.entries(snapshot.val())
 
-    let itemsArray = Object.entries(snapshot.val())
+        clearListItemsEl()
 
-    clearListItemsEl()
+        for (let i = 0; i < itemsArray.length; i++) {
+            let currentItem = itemsArray[i]
+            let currentItemID = currentItem[0]
+            let currentItemValue = currentItem[1]
 
-    for (let i = 0; i < itemsArray.length; i++) {
-        let currentItem = itemsArray[i]
-        let currentItemID = currentItem[0]
-        let currentItemValue = currentItem[1]
-
-        addUserInputToList(currentItem)
+            addUserInputToList(currentItem)
+        }
+    } else {
+        listItemsEl.innerHTML = ""
     }
 })
 
@@ -48,6 +51,12 @@ function addUserInputToList(item){
     let itemValue = item[1]
     let newEl = document.createElement("li")
     newEl.textContent = itemValue
+
+    newEl.addEventListener("click", function(){
+        let locationOfItemInDB = ref(database, `itemsList/${itemID}`)
+        remove(locationOfItemInDB)
+    })
+
     listItemsEl.append(newEl)
 }
 
