@@ -27,11 +27,10 @@ onValue(itemsInDB, function(snapshot){
 
     for (let i = 0; i < itemsArray.length; i++) {
         let currentItem = itemsArray[i]
-
         let currentItemID = currentItem[0]
         let currentItemValue = currentItem[1]
 
-        addUserInputToList(currentItemValue)
+        addUserInputToList(currentItem)
     }
 })
 
@@ -44,9 +43,11 @@ function clearUserInput(){
     inputFieldEl.value = ""
 }
 
-function addUserInputToList(userInput){
+function addUserInputToList(item){
+    let itemID = item[0]
+    let itemValue = item[1]
     let newEl = document.createElement("li")
-    newEl.textContent = userInput
+    newEl.textContent = itemValue
     listItemsEl.append(newEl)
 }
 
